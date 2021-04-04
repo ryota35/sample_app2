@@ -4,26 +4,13 @@
 
     <%= f.fields_for :results do |i| %>
       <p><%= test.content %></p>
-      <%= i.radio_button :selection_result, 1 %><%= test.choice1 %>
-      <%= i.radio_button :selection_result, 2 %><%= test.choice2 %>
-      <%= i.radio_button :selection_result, 3 %><%= test.choice3 %>
-      <%= i.radio_button :selection_result, 4 %><%= test.choice4 %>
+      <label><%= i.radio_button :selection_result, 1 %><%= test.choice1 %></label>
+      <label><%= i.radio_button :selection_result, 2 %><%= test.choice2 %></label>
+      <label><%= i.radio_button :selection_result, 3 %><%= test.choice3 %></label>
+      <label><%= i.radio_button :selection_result, 4 %><%= test.choice4 %></label>
       <%= i.hidden_field :test_id, value: test.id %>
-      <%= i.hidden_field :answer, value: test.answer %>
-
-      <%= i.hidden_field :judgment, value:
-      if :selection_result == test.answer
-        "true"
-      else
-        "false"
-      end %>
-      <!--選んだ数字と答えの数字が同じならtrue、違うならfalseを入れたい-->
-
     <% end %>
 
   <% end %>
-
-<%= f.hidden_field :score, value: 5 %>
-<!--judgmentの"true"のcountを入れたい-->
 <p><%= f.submit "回答する" %></p>
 <% end %>

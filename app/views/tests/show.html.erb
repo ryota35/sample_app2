@@ -1,2 +1,25 @@
-<h1>Tests#show</h1>
-<p>Find me in app/views/tests/show.html.erb</p>
+<h1>結果発表ページ</h1>
+<h1>あなたの得点は<%= @score.score %>点です！</h1>
+
+
+  <% @results.each do |result| %>
+
+    <p><%= result.test.content %></p>
+
+    <%= radio_button "result#{result.id}", "select", "1", disabled: true, checked: result.selection_result == 1 %><%= result.test.choice1 %>
+    <%= radio_button "result#{result.id}", "select", "2", disabled: true, checked: result.selection_result == 2 %><%= result.test.choice2 %>
+    <%= radio_button "result#{result.id}", "select", "3", disabled: true, checked: result.selection_result == 3 %><%= result.test.choice3 %>
+    <%= radio_button "result#{result.id}", "select", "4", disabled: true, checked: result.selection_result == 4 %><%= result.test.choice4 %>
+
+
+    <% if result.selection_result == result.test.answer %>
+      <p>正解だー</p>
+    <% else %>
+      <p>不正解だー</p>
+    <% end %>
+
+    
+
+    <p>答え　<%= result.test.get_answer %></p>
+
+  <% end %>
