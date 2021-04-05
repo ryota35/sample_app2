@@ -9,8 +9,10 @@
       <label><%= i.radio_button :selection_result, 3 %><%= test.choice3 %></label>
       <label><%= i.radio_button :selection_result, 4 %><%= test.choice4 %></label>
       <%= i.hidden_field :test_id, value: test.id %>
+
     <% end %>
 
   <% end %>
+<%= f.hidden_field :user_id, value: current_user.id %>
 <p><%= f.submit "回答する" %></p>
 <% end %>

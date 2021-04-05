@@ -7,6 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+Admin.create!(
+  email: "test@test.com",
+  password: "testtest"
+  )
+
+User.create!(
+  email: "sasa@sasa.com",
+  name: "hoge",
+  password: "sasasa"
+  )
+
 20.times do |n|
   Test.create!(
     content: "サンプル問題です#{n + 1}",

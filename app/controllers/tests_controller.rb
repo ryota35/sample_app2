@@ -1,17 +1,17 @@
 class TestsController < ApplicationController
-  before_action :tests
 
   def new
     @score = Score.new
     @score.results.build
-    @tests = test_set
+    @tests = Test.test_set
   end
 
   def index
-    @max_score = Score.maximum(:score)
+    @max_score = current_user.scores.maximum(:score)
   end
 
   def create
+
     score = Score.new(score_params)
     score.save
 
@@ -28,9 +28,7 @@ class TestsController < ApplicationController
 
   private
     def score_params
-        params.require(:score).permit(:score, results_attributes:[:id, :test_id, :selection_result, :judgment])
+        params.require(:score).permit(:score, :user_id, results_attributes:[:id, :test_id, :selection_result, :judgment])
     end
-
-    
 
 end
