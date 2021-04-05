@@ -5,6 +5,9 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    article = Article.new(article_params)
+    article.user_id = current_user.id
+    article.save
   end
 
   def show
@@ -13,7 +16,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).parmit(:user_id, :admin_id, :title, :body, :level)
+    params.require(:article).permit(:title, :body, :level)
   end
 
 end

@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :users
-  root to: 'tests#new'
+  root to: 'articles#new'
 
-  resources :tests, only: [:index, :create, :show]
+  resources :tests, only: [:new, :index, :create, :show]
   resources :articles, only: [:new, :create, :show]
 
 end
