@@ -53,3 +53,30 @@ end
     level: 2
   )
 end
+
+10.times do |n|
+  Article.create!(
+    user_id: 1,
+    title: "sample#{n + 1}",
+    body: "sample#{n + 1}",
+    level: 0
+    )
+  end
+
+10.times do |n|
+  Article.create!(
+    user_id: 1,
+    title: "sample#{n + 11}",
+    body: "sample#{n + 11}",
+    level: 1
+    )
+  end
+
+10.times do |n|
+  Article.create!(
+    user_id: 1,
+    title: "sample#{n + 21}",
+    body: "sample#{n + 21}",
+    level: 2
+    )
+  end
