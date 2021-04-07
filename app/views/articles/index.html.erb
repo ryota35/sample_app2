@@ -1,14 +1,16 @@
-<div class="sample sample01">
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="images/img/img01.png"></div>
-      <div class="swiper-slide"><img src="images/img/img02.png"></div>
-      <div class="swiper-slide"><img src="images/img/img03.png"></div>
+      <% @articles.each do |article| %>
+        <div class="swiper-slide">
+          <%= link_to article_path(article) do %>
+          <p><%= article.title %></p>
+          <p><%= article.body %></p>
+          <p><%= article.level %></p>
+          <% end %>
+        </div>
+      <% end %>s
     </div>
-
-    <div class="swiper-pagination"></div>
-
-    <div class="swiper-button-prev"></div>
+    <!-- Add Arrows -->
     <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
-</div>
