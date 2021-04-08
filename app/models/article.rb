@@ -13,4 +13,9 @@ class Article < ApplicationRecord
     end
   end
 
+
+  def self.search(search)
+    Article.where(['title LIKE ?', "%#{search}%"])
+  end
+
 end

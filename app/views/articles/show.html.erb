@@ -2,7 +2,7 @@
 
 <p><%= @article.title%></p>
 
-<p><%= simple_format(@article.body) %></p>
+<p><%= safe_join(@article.body.split("\n"),tag(:br)) %></p>
 
 <p><%= @article.level%></p>
 
